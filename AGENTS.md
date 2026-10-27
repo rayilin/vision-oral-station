@@ -27,9 +27,9 @@
 - [x] 階段 4：教案 13 節、學習單 2 份、測驗卷（DOCX 4 份 ＋ PDF 4 份，Word COM 轉檔）
 - [x] 階段 5：教學網頁 11 區＋對戰（`battle.html`／`server.js`／30 題題庫）
 - [x] 階段 6：靜態驗收 `verify_site.js` 36 項全過、瀏覽器實測（含 390px）
-- [ ] 階段 7：上線 GitHub Pages
-- [ ] 階段 8：對戰後端上 Render（Blueprint：service `vision-oral-battle`）→ 回填 `battle-api.js`
-- [ ] 階段 9：Obsidian 創作庫筆記同步
+- [x] 階段 7：上線 GitHub Pages → <https://rayilin.github.io/vision-oral-station/>
+- [ ] 階段 8：對戰後端上 Render（Blueprint：service `vision-oral-battle`）→ 回填 `battle-api.js`（**需老師本人登入授權**）
+- [ ] 階段 9：Obsidian 創作庫筆記同步（obsidian MCP 斷線，待重啟 OpenCode）
 
 ## 資料夾結構
 
