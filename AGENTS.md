@@ -99,16 +99,17 @@ powershell -File "C:\Users\rayi\.config\opencode\skills\teaching-unit-site\scrip
 | 層級 | 平台 | 位置 | 讀取時機 |
 |------|------|------|---------|
 | L1 | 本地 | `AGENTS.md`＋`handoff.md` | 每個 session |
-| L2 | GitHub | `rayilin/vision-oral-station`（私有） | 指定時 |
+| L2 | GitHub | `rayilin/vision-oral-station`（**公開**：GitHub Pages 免費方案不支援私有 repo） | 指定時 |
 | L3 | Obsidian | `創作庫/視力口腔檢查站/專案工作流程.md` | 有需要時 |
 
 ## 已上線網址
 
-（部署後填寫）
+- 教學網頁：<https://rayilin.github.io/vision-oral-station/>
+- 對戰頁：<https://rayilin.github.io/vision-oral-station/battle.html>
+- 雲端對戰後端：`https://vision-oral-battle.onrender.com`（**尚未部署**，部署後把網址填回 `教學網頁/battle-api.js` 第一行）
 
-- 教學網頁：
-- 對戰頁：
-- 雲端對戰後端：`https://vision-oral-battle.onrender.com`（`/api/health`）
+線上驗證（2026-10-27）：首頁／對戰頁／圖卡／簡報圖／下載檔皆 200；
+`questions.json`、`server.js`、`start-battle.bat` 皆 404（答案與伺服器程式不會上線）。
 
 ## 與其他專案的關係
 
@@ -130,4 +131,6 @@ powershell -File "C:\Users\rayi\.config\opencode\skills\teaching-unit-site\scrip
 - **不把 API key、密碼、憑證寫進 repo**，也不要貼進 `AGENTS.md`／`handoff.md`；一律放 `.env` 並列入 `.gitignore`
 - **學生資料只用座號**，不出現姓名、學號、班級以外的個資、照片或聯絡方式
 - `questions.json`（含答案）**不得上 GitHub Pages**；Pages workflow 已排除，驗收會檢查
+- ⚠️ repo 目前是**公開**的（Pages 免費方案限制），所以 `questions.json` 會出現在 GitHub 檔案清單，
+  但網站上抓不到（已驗證回 404）。若之後改私有，Pages 會失效，需改用其他託管。
 - 答案與解析只出現在教師用測驗卷與對戰後端，網站前端只有 10 題測驗的即時回饋

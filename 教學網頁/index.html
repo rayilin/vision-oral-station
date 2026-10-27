@@ -887,13 +887,20 @@ function quizSpeech(q, idx){
 (function battleNote(){
   const api = (window.BATTLE_API || '').trim();
   const note = $('#battleNote');
+  const h = location.hostname;
+  const isLocal = h === '' || h === 'localhost' || h === '127.0.0.1' ||
+    /^192\.168\./.test(h) || /^10\./.test(h) || /^172\.(1[6-9]|2\d|3[01])\./.test(h);
   if (api){
     note.innerHTML = `線上版：兩個學生各自開這個網頁，捲到這一區，輸入名字就會自動配對。<br>
       老師也可以直接開 <a href="battle.html">對戰頁</a>。第一次連線若停在「正在連線」，是後端剛睡醒，等 30～60 秒。`;
-  } else {
+  } else if (isLocal){
     note.innerHTML = `目前是「教室區網」模式：請老師先雙擊 <code>start-battle.bat</code>，
       黑色視窗會顯示學生入口網址（含實際埠號，例如 <code>http://192.168.1.10:8765/battle.html</code>），
       照那個網址給學生開即可。`;
+  } else {
+    note.innerHTML = `線上對戰後端還沒接上。要用的話有兩條路：<br>
+      ① 教室區網：在老師電腦雙擊 <code>start-battle.bat</code>，把終端機顯示的網址給學生。<br>
+      ② 雲端：把 Render 的服務網址填進 <code>battle-api.js</code> 的 <code>window.BATTLE_API</code>，重新部署後就全校可用。`;
   }
 })();
 </script>

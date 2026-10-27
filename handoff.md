@@ -6,8 +6,10 @@
 
 ## ⏯️ 目前做到哪
 
-**教材與網站已全部做完並通過驗收，正在做上線（GitHub Pages＋Render）。**
+**教材、網站、上線都已完成，只差 Render 對戰後端（需老師本人登入授權）。**
 
+- 教學網頁已上線：<https://rayilin.github.io/vision-oral-station/>
+- 對戰頁：<https://rayilin.github.io/vision-oral-station/battle.html>（目前走教室區網模式，雲端後端待建）
 - 單元：康軒版 健體 5 上 單元一「健康學什麼」第 2 課「視力口腔檢查站」，3 節 120 分鐘
 - 課綱：`Da-Ⅲ-3`（學習內容）／`4a-Ⅲ-3`（學習表現）
 - 內容單一來源：`工具/content.py`（改內容只改這支，再重跑建置）
@@ -39,10 +41,10 @@
 
 ## 🚧 進行中／待辦
 
-1. **GitHub Pages 上線**（`rayilin/vision-oral-station`，私有 repo）
-2. **Render 部署對戰後端**（`vision-oral-battle`）→ 把網址填回 `教學網頁/battle-api.js` → 重新 push
-3. 更新 `AGENTS.md`「已上線網址」
-4. Obsidian `創作庫/視力口腔檢查站/專案工作流程.md`（**本次未完成：obsidian MCP 斷線，見下方坑**）
+1. **Render 部署對戰後端**（`vision-oral-battle`）→ 把網址填回 `教學網頁/battle-api.js` 第一行 → 重新 push
+   - 這步需要老師本人登入 Render 點授權（Agent 沒有、也不該有 Render 憑證）
+2. Obsidian `創作庫/視力口腔檢查站/專案工作流程.md`（**本次未完成：obsidian MCP 已斷線，需重啟 OpenCode**）
+3. 排定三節課實際上課日期，補進 `AGENTS.md`「關鍵時程」
 
 ## ⚠️ 踩過的坑（務必記住）
 
@@ -70,13 +72,19 @@
 
 ## ▶️ 下一步（照順序做）
 
+**已完成：**`git init` → 首次 commit → `gh repo create vision-oral-station` → Pages（`build_type=workflow`）→ 部署成功。
+
+**剩下這一步（要老師本人操作）：**
+
+1. 開 <https://dashboard.render.com/blueprints> → **New Blueprint Instance**
+2. 選 repo `rayilin/vision-oral-station` → Apply（`render.yaml` 已寫好：service `vision-oral-battle`、`node battle-server.js`、健康檢查 `/api/health`）
+3. 等約 2～3 分鐘，複製服務網址（形如 `https://vision-oral-battle.onrender.com`）
+4. 回報網址，或自己改 `教學網頁/battle-api.js` **第一行**：
+   `window.BATTLE_API = 'https://vision-oral-battle.onrender.com';`
+5. commit＋push → Pages 自動重新部署 → 線上複驗 `battle.html` 能配對
+
 ```powershell
 cd C:\Users\rayi\Documents\健康教育教學專欄\視力口腔檢查站
-git init -b main
-git add -A && git commit -m "視力口腔檢查站：教材、簡報、學習單、測驗、教學網頁與對戰"
-gh repo create vision-oral-station --private --source=. --push
-gh api -X POST repos/rayilin/vision-oral-station/pages -f build_type=workflow
+git add -A; git commit -m "接上 Render 對戰後端"; git push
 gh run watch
-# 取得 https://rayilin.github.io/vision-oral-station/ 後，再到 Render 建 Blueprint（vision-oral-battle）
-# 最後把 onrender 網址填回 教學網頁/battle-api.js 第一行，commit＋push 觸發重新部署
 ```
