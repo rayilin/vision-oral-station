@@ -1,0 +1,20 @@
+# 系統與暫存
+desktop.ini
+Thumbs.db
+.DS_Store
+*.tmp
+~$*
+
+# 憑證與環境變數（絕對不要 commit）
+.env
+.env.*
+*.key
+credentials.*
+*.pem
+
+# 建置中間檔
+工具/__pycache__/
+*.pyc
+
+# 投影片匯出的暫存圖（保留 slides/ 正式 JPG）
+簡報/~$*

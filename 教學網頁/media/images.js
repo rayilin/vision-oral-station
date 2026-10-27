@@ -1,0 +1,27 @@
+/* 教材圖卡清單（由 工具/build_site.py 產生） */
+const IMAGES = [
+  {"code": "v01", "name": "視力檢查站", "g": "視力站", "h": "media/thumb/v01.svg", "f": "media/img/v01.svg"},
+  {"code": "v02", "name": "視力表怎麼看", "g": "視力站", "h": "media/thumb/v02.svg", "f": "media/img/v02.svg"},
+  {"code": "v03", "name": "0.8 複檢線", "g": "視力站", "h": "media/thumb/v03.svg", "f": "media/img/v03.svg"},
+  {"code": "v04", "name": "眼睛的構造", "g": "視力站", "h": "media/thumb/v04.svg", "f": "media/img/v04.svg"},
+  {"code": "v05", "name": "正常眼與近視眼", "g": "視力站", "h": "media/thumb/v05.svg", "f": "media/img/v05.svg"},
+  {"code": "v06", "name": "睫狀肌與水晶體", "g": "視力站", "h": "media/thumb/v06.svg", "f": "media/img/v06.svg"},
+  {"code": "v07", "name": "3010 護眼原則", "g": "視力站", "h": "media/thumb/v07.svg", "f": "media/img/v07.svg"},
+  {"code": "v08", "name": "30–40 公分距離", "g": "視力站", "h": "media/thumb/v08.svg", "f": "media/img/v08.svg"},
+  {"code": "v09", "name": "戶外 120 分鐘", "g": "視力站", "h": "media/thumb/v09.svg", "f": "media/img/v09.svg"},
+  {"code": "v10", "name": "光線怎麼安排", "g": "視力站", "h": "media/thumb/v10.svg", "f": "media/img/v10.svg"},
+  {"code": "v11", "name": "3C 用眼時間表", "g": "視力站", "h": "media/thumb/v11.svg", "f": "media/img/v11.svg"},
+  {"code": "v12", "name": "護眼食物", "g": "視力站", "h": "media/thumb/v12.svg", "f": "media/img/v12.svg"},
+  {"code": "d01", "name": "口腔檢查站", "g": "口腔站", "h": "media/thumb/d01.svg", "f": "media/img/d01.svg"},
+  {"code": "d02", "name": "牙齒的構造", "g": "口腔站", "h": "media/thumb/d02.svg", "f": "media/img/d02.svg"},
+  {"code": "d03", "name": "齲齒四要素", "g": "口腔站", "h": "media/thumb/d03.svg", "f": "media/img/d03.svg"},
+  {"code": "d04", "name": "牙菌斑", "g": "口腔站", "h": "media/thumb/d04.svg", "f": "media/img/d04.svg"},
+  {"code": "d05", "name": "糖的陷阱", "g": "口腔站", "h": "media/thumb/d05.svg", "f": "media/img/d05.svg"},
+  {"code": "d06", "name": "貝氏刷牙法", "g": "口腔站", "h": "media/thumb/d06.svg", "f": "media/img/d06.svg"},
+  {"code": "d07", "name": "刷牙兩顆兩顆", "g": "口腔站", "h": "media/thumb/d07.svg", "f": "media/img/d07.svg"},
+  {"code": "d08", "name": "牙線怎麼用", "g": "口腔站", "h": "media/thumb/d08.svg", "f": "media/img/d08.svg"},
+  {"code": "d09", "name": "含氟與定期檢查", "g": "口腔站", "h": "media/thumb/d09.svg", "f": "media/img/d09.svg"},
+  {"code": "d10", "name": "乳牙與恆牙", "g": "口腔站", "h": "media/thumb/d10.svg", "f": "media/img/d10.svg"},
+  {"code": "a01", "name": "檢查站流程", "g": "行動站", "h": "media/thumb/a01.svg", "f": "media/img/a01.svg"},
+  {"code": "a02", "name": "我的行動方案", "g": "行動站", "h": "media/thumb/a02.svg", "f": "media/img/a02.svg"}
+];

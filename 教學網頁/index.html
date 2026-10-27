@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>視力口腔檢查站｜康軒健體 五上 第2課</title>
+<link rel="icon" type="image/svg+xml" href="media/favicon.svg">
+<meta name="description" content="國小五年級健康與體育「視力口腔檢查站」教學網頁：3 節課課程地圖、互動實驗、教學簡報、10 題測驗、參考影片、抽籤計時器與兩人對戰。">
+<style>
+  :root{
+    --bg:#FAF7F0; --bg2:#F3EEE1; --card:#FFFFFF;
+    --ink:#35544A; --ink2:#6B7B72; --ink3:#9AA69F;
+    --accent:#C06A2B; --accent-soft:#F6E7D8;
+    --n:#C0392B; --s:#2C5F8A;
+    --line:#E6DECC; --ok:#3F7D5A; --bad:#B4483C;
+    --radius:18px; --maxw:1080px;
+    --shadow:0 2px 10px rgba(53,84,74,.06), 0 12px 30px rgba(53,84,74,.05);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"微軟正黑體","Microsoft JhengHei","Noto Sans TC","PingFang TC",system-ui,sans-serif;
+    line-height:1.75; -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%; display:block}
+  a{color:var(--accent); text-decoration:none}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 20px}
+  .eyebrow{font-size:13px; letter-spacing:.16em; color:var(--accent); font-weight:700; margin:0 0 8px}
+  h2{font-size:30px; margin:0 0 10px; letter-spacing:.01em}
+  h3{font-size:19px; margin:0 0 8px}
+  .lead{color:var(--ink2); margin:0 0 28px; font-size:16px}
+  section{padding:64px 0; border-top:1px solid var(--line)}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; cursor:pointer;
+    background:var(--ink); color:#fff; border:0; border-radius:999px;
+    padding:12px 22px; font-size:15px; font-family:inherit; font-weight:600;
+    transition:.2s; text-decoration:none;
+  }
+  .btn:hover{transform:translateY(-1px); box-shadow:0 6px 18px rgba(53,84,74,.2)}
+  .btn.accent{background:var(--accent)}
+  .btn.ghost{background:transparent; color:var(--ink); border:1.5px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--ink); box-shadow:none}
+  .btn:disabled{opacity:.45; cursor:not-allowed; transform:none; box-shadow:none}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow)}
+
+  /* ── 導覽 ── */
+  .nav{position:sticky; top:0; z-index:50; background:rgba(250,247,240,.94);
+       backdrop-filter:blur(8px); border-bottom:1px solid var(--line)}
+  .nav .wrap{display:flex; align-items:center; gap:6px; height:56px; overflow-x:auto; scrollbar-width:none}
+  .nav .wrap::-webkit-scrollbar{display:none}
+  .nav .brand{font-weight:700; margin-right:10px; white-space:nowrap; color:var(--ink)}
+  .nav a{padding:6px 12px; border-radius:999px; font-size:14px; color:var(--ink2); white-space:nowrap}
+  .nav a:hover{background:var(--bg2); color:var(--ink)}
+
+  /* ── Hero ── */
+  .hero{padding:72px 0 56px; border-top:0}
+  .hero .wrap{display:grid; grid-template-columns:1.15fr .85fr; gap:40px; align-items:center}
+  .hero h1{font-size:54px; line-height:1.15; margin:6px 0 14px; letter-spacing:.02em}
+  .hero .sub{font-size:17px; color:var(--ink2); margin:0 0 26px; max-width:30em}
+  .chips{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 26px}
+  .chip{background:var(--card); border:1px solid var(--line); border-radius:999px;
+        padding:6px 14px; font-size:13.5px; color:var(--ink2)}
+  .chip b{color:var(--ink)}
+  .hero-art{position:relative}
+  .hero-art img{filter:saturate(.9); border-radius:var(--radius)}
+  .hero-cta{display:flex; gap:12px; flex-wrap:wrap}
+
+  /* ── 課程地圖 ── */
+  .lessons{display:grid; gap:16px}
+  .lesson{display:grid; grid-template-columns:76px 1fr; gap:20px; padding:22px 24px; align-items:start}
+  .lesson .no{font-size:34px; font-weight:800; color:var(--accent); line-height:1; text-align:center}
+  .lesson .no small{display:block; font-size:11px; color:var(--ink3); font-weight:600; letter-spacing:.1em; margin-top:6px}
+  .lesson h3{margin-bottom:4px; font-size:20px}
+  .lesson .goal{color:var(--ink2); font-size:15px; margin:0 0 10px}
+  .lesson .acts{display:flex; flex-wrap:wrap; gap:6px; margin:0; padding:0; list-style:none}
+  .lesson .acts li{font-size:13px; background:var(--bg2); border-radius:8px; padding:4px 10px; color:var(--ink)}
+  .lesson .imgs{display:flex; gap:6px; margin-top:12px; flex-wrap:wrap}
+  .lesson .imgs img{width:56px; height:42px; object-fit:cover; background:#fff; border:1px solid var(--line); border-radius:8px}
+
+  /* ── 互動實驗室 ── */
+  .labs{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+  .lab{padding:22px; display:flex; flex-direction:column}
+  .lab .tag{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:.1em}
+  .lab h3{margin:4px 0 6px}
+  .lab p.hint{font-size:13.5px; color:var(--ink2); margin:0 0 14px; min-height:40px}
+  .lab .stage{background:var(--bg2); border-radius:12px; padding:14px; flex:1; display:flex;
+              flex-direction:column; justify-content:center; align-items:center; min-height:200px; text-align:center}
+  .lab .name{font-weight:700; margin-top:8px}
+  .lab .opts{display:flex; gap:8px; margin-top:14px; width:100%}
+  .lab .opts button{flex:1; padding:10px; border-radius:10px; border:1.5px solid var(--line);
+                    background:#fff; font-family:inherit; font-size:14px; cursor:pointer; color:var(--ink)}
+  .lab .opts button:hover{border-color:var(--ink)}
+  .lab .fb{margin-top:12px; font-size:14px; min-height:44px}
+  .lab .fb.ok{color:var(--ok)} .lab .fb.bad{color:var(--bad)}
+  .progress{font-size:12.5px; color:var(--ink3); margin-top:8px}
+  .big-num{font-size:52px; font-weight:800; color:var(--accent); line-height:1.1; font-variant-numeric:tabular-nums}
+  .bar-track{width:100%; height:10px; border-radius:999px; background:#fff; border:1px solid var(--line); margin-top:12px; overflow:hidden}
+  .bar-fill{height:100%; width:10%; background:var(--accent); transition:width .25s}
+  .lab input[type=range]{width:100%; margin-top:16px; accent-color:var(--accent)}
+  .quad{display:grid; grid-template-columns:1fr 1fr; gap:8px; width:100%}
+  .quad button{padding:12px 8px; border-radius:10px; border:1.5px solid var(--line); background:#fff;
+               font-family:inherit; font-size:13.5px; cursor:pointer; color:var(--ink)}
+  .quad button:hover{border-color:var(--accent); color:var(--accent)}
+  .quad button.on{background:var(--accent); color:#fff; border-color:var(--accent)}
+  .emoji{font-size:54px; line-height:1.2}
+
+  /* ── 簡報播放器 ── */
+  .deck{max-width:960px; margin:0 auto}
+  .deck .frame{position:relative; border-radius:14px; overflow:hidden; border:1px solid var(--line); background:#fff; box-shadow:var(--shadow)}
+  .deck .frame img{width:100%; aspect-ratio:16/9; object-fit:contain; background:#fff}
+  .deck .bar{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:14px}
+  .deck .count{font-size:14px; color:var(--ink2); font-variant-numeric:tabular-nums}
+  .deck .thumbs{display:flex; gap:8px; overflow-x:auto; padding:14px 2px 4px}
+  .deck .thumbs img{width:92px; border-radius:6px; border:2px solid transparent; cursor:pointer; opacity:.6}
+  .deck .thumbs img:hover{opacity:1}
+  .deck .thumbs img.on{border-color:var(--accent); opacity:1}
+
+  /* ── 測驗 ── */
+  .quiz{max-width:760px; margin:0 auto}
+  .qcard{padding:28px}
+  .qimg{max-height:170px; margin:0 auto 18px}
+  .qhead{display:flex; gap:12px; align-items:flex-start; margin:0 0 20px}
+  .qtext{font-size:21px; font-weight:700; margin:0; line-height:1.6; flex:1}
+  .speak{flex:none; display:inline-flex; align-items:center; gap:6px; border:1.5px solid var(--line);
+         background:#fff; color:var(--ink); border-radius:999px; padding:8px 15px; font-size:13.5px;
+         font-family:inherit; cursor:pointer; white-space:nowrap; line-height:1.4; transition:.15s}
+  .speak:hover{border-color:var(--accent); color:var(--accent)}
+  .speak.on{background:var(--accent); border-color:var(--accent); color:#fff}
+  .qopts{display:grid; gap:10px}
+  .qopt{display:flex; gap:12px; align-items:flex-start; text-align:left; padding:14px 16px;
+        border:1.5px solid var(--line); background:#fff; border-radius:12px; cursor:pointer;
+        font-family:inherit; font-size:16px; color:var(--ink); transition:.15s}
+  .qopt:hover:not(:disabled){border-color:var(--ink); background:var(--bg)}
+  .qopt .k{font-weight:800; color:var(--ink3); min-width:18px}
+  .qopt.ok{border-color:var(--ok); background:#EEF6F0}
+  .qopt.ok .k{color:var(--ok)}
+  .qopt.bad{border-color:var(--bad); background:#FBEFED}
+  .qopt.bad .k{color:var(--bad)}
+  .qfb{margin-top:16px; padding:14px 16px; border-radius:12px; background:var(--bg2); font-size:15px; display:none}
+  .qfb.show{display:block}
+  .qfb b{color:var(--ink)}
+  .qbar{margin-top:18px; display:flex; justify-content:space-between; align-items:center; font-size:14px; color:var(--ink2)}
+  .result{text-align:center; padding:28px}
+  .result .score{font-size:64px; font-weight:800; color:var(--accent); line-height:1}
+  .result .score small{font-size:20px; color:var(--ink3); font-weight:600}
+
+  /* ── 影片 ── */
+  .videos{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+  .video{overflow:hidden; display:flex; flex-direction:column; transition:.2s}
+  .video:hover{transform:translateY(-3px); box-shadow:0 12px 30px rgba(53,84,74,.12)}
+  .thumb{position:relative; aspect-ratio:16/9; background:var(--bg2)}
+  .thumb img{width:100%; height:100%; object-fit:cover}
+  .thumb .play{position:absolute; inset:0; display:grid; place-items:center}
+  .thumb .play span{width:54px; height:54px; border-radius:50%; background:rgba(0,0,0,.65);
+                    display:grid; place-items:center; color:#fff; font-size:20px}
+  .video .meta{padding:14px 16px 18px}
+  .video .meta b{display:block; font-size:15.5px; line-height:1.5; margin-bottom:4px}
+  .video .meta span{font-size:13px; color:var(--ink3)}
+
+  /* ── 工具 ── */
+  .tools{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+  .tool{padding:24px}
+  .draw-num{font-size:72px; font-weight:800; line-height:1; color:var(--accent); text-align:center; margin:10px 0 4px; font-variant-numeric:tabular-nums}
+  .draw-num.idle{color:var(--ink3); font-size:30px; padding:20px 0}
+  .tool .row{display:flex; gap:10px; justify-content:center; margin-top:14px; flex-wrap:wrap}
+  .pool{font-size:13px; color:var(--ink3); text-align:center; margin-top:10px; line-height:1.6}
+  .timer{font-size:64px; font-weight:800; text-align:center; font-variant-numeric:tabular-nums; color:var(--ink); margin:8px 0}
+  .timer.warn{color:var(--bad)}
+  .presets{display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-top:6px}
+  .presets button{border:1px solid var(--line); background:#fff; border-radius:999px; padding:6px 14px;
+                  font-family:inherit; font-size:13px; cursor:pointer; color:var(--ink2)}
+  .presets button:hover{border-color:var(--ink); color:var(--ink)}
+
+  /* ── 對戰 ── */
+  .battle{border-radius:var(--radius); overflow:hidden; border:1px solid var(--line); background:#fff; box-shadow:var(--shadow)}
+  .battle iframe{width:100%; height:600px; border:0; display:block}
+  .note{font-size:14px; color:var(--ink2); margin-top:14px; line-height:1.8}
+
+  /* ── 圖庫 ── */
+  .filters{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px}
+  .filters button{border:1px solid var(--line); background:#fff; border-radius:999px; padding:8px 16px;
+                  font-family:inherit; font-size:14px; cursor:pointer; color:var(--ink2)}
+  .filters button.on{background:var(--ink); color:#fff; border-color:var(--ink)}
+  .grid{display:grid; grid-template-columns:repeat(6,1fr); gap:12px}
+  .grid figure{margin:0; background:#fff; border:1px solid var(--line); border-radius:10px; padding:8px; cursor:zoom-in; transition:.15s}
+  .grid figure:hover{border-color:var(--accent); transform:translateY(-2px)}
+  .grid img{aspect-ratio:4/3; object-fit:cover; width:100%}
+  .grid figcaption{font-size:11.5px; color:var(--ink3); text-align:center; margin-top:4px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+
+  /* ── 下載 ── */
+  .dl{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+  .dl a{display:flex; flex-direction:column; gap:6px; padding:20px; color:var(--ink)}
+  .dl a b{font-size:16px}
+  .dl a span{font-size:13px; color:var(--ink2)}
+  .dl a em{font-style:normal; font-size:12px; color:var(--accent); font-weight:700}
+
+  /* ── Lightbox ── */
+  .lb{position:fixed; inset:0; background:rgba(28,36,32,.86); display:none; place-items:center; z-index:100; padding:24px}
+  .lb.on{display:grid}
+  .lb img{max-height:78vh; max-width:92vw; background:#fff; border-radius:10px; padding:10px}
+  .lb p{color:#fff; text-align:center; margin:14px 0 0; font-size:15px}
+  .lb .close{position:absolute; top:18px; right:22px; color:#fff; font-size:34px; cursor:pointer; line-height:1}
+
+  footer{padding:40px 0 56px; color:var(--ink3); font-size:13.5px; border-top:1px solid var(--line)}
+  footer a{color:var(--ink2)}
+  .toast{position:fixed; left:50%; bottom:28px; transform:translateX(-50%) translateY(20px);
+         background:var(--ink); color:#fff; padding:10px 20px; border-radius:999px; font-size:14px;
+         opacity:0; pointer-events:none; transition:.25s; z-index:120}
+  .toast.on{opacity:1; transform:translateX(-50%) translateY(0)}
+
+  @media (max-width:900px){
+    .hero .wrap{grid-template-columns:1fr}
+    .hero h1{font-size:40px}
+    .hero-art{order:-1; max-width:320px}
+    .labs,.videos,.dl{grid-template-columns:1fr}
+    .tools{grid-template-columns:1fr}
+    .grid{grid-template-columns:repeat(3,1fr)}
+    .lesson{grid-template-columns:56px 1fr; padding:18px}
+    .lesson .no{font-size:26px}
+    section{padding:48px 0}
+    h2{font-size:25px}
+    .battle iframe{height:520px}
+  }
+  @media (max-width:520px){
+    .grid{grid-template-columns:repeat(2,1fr)}
+    .hero h1{font-size:34px}
+    .qtext{font-size:18px}
+    .qhead{flex-direction:column; gap:10px}
+    .speak{align-self:flex-start}
+    .draw-num{font-size:56px}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <span class="brand">視力口腔檢查站</span>
+    <a href="#map">課程地圖</a>
+    <a href="#labs">互動實驗</a>
+    <a href="#deck">教學簡報</a>
+    <a href="#quiz">測驗</a>
+    <a href="#videos">影片</a>
+    <a href="#tools">教學工具</a>
+    <a href="#battle">兩人對戰</a>
+    <a href="#gallery">教材圖卡</a>
+    <a href="#downloads">下載</a>
+  </div>
+</nav>
+
+<header class="hero" id="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">康軒版 健康與體育 五年級上學期</p>
+      <h1>視力口腔檢查站</h1>
+      <p class="sub">單元一「健康學什麼」第 2 課｜3 節課。這一課的課名就是「檢查站」——我們從檢查出發，看懂自己被畫圈的地方，最後真的做出一點改變。</p>
+      <div class="chips">
+        <span class="chip"><b>3</b> 節課</span>
+        <span class="chip">每節 <b>40</b> 分鐘</span>
+        <span class="chip"><b>Da-Ⅲ-3</b> 視力與口腔衛生</span>
+        <span class="chip"><b>4a-Ⅲ-3</b> 促進健康的行動</span>
+      </div>
+      <div class="hero-cta">
+        <a class="btn accent" href="#labs">先玩互動實驗</a>
+        <a class="btn ghost" href="#quiz">做 10 題測驗</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img src="media/img/v01.svg" alt="視力檢查站圖卡">
+    </div>
+  </div>
+</header>
+
+<section id="map">
+  <div class="wrap">
+    <p class="eyebrow">課程地圖</p>
+    <h2>3 節課，走完三個檢查站</h2>
+    <p class="lead">每一節都有一個「動手的任務」和一個「要記住的概念」。點標題可跳到該節的簡報頁。</p>
+    <div class="lessons" id="lessonList"></div>
+  </div>
+</section>
+
+<section id="labs">
+  <div class="wrap">
+    <p class="eyebrow">互動實驗室</p>
+    <h2>先猜，再驗證</h2>
+    <p class="lead">三個小活動對應三節課的重點：算用眼時間、判斷食物風險、找出刷牙的死角。</p>
+    <div class="labs">
+
+      <div class="lab card">
+        <span class="tag">實驗 ①</span>
+        <h3>護眼時鐘</h3>
+        <p class="hint">拖動滑桿，看看連續用眼多久、中間該休息幾次。</p>
+        <div class="stage">
+          <div style="font-size:13px;color:var(--ink2)">連續用眼</div>
+          <div class="big-num" id="eyeOut">45 分鐘</div>
+          <div class="bar-track"><div class="bar-fill" id="eyeBar"></div></div>
+          <div class="name" id="eyeBreak">依 3010，中間要休息 0 次</div>
+        </div>
+        <input id="eyeRange" type="range" min="0" max="120" value="45" step="5">
+        <div class="fb" id="eyeFb"></div>
+      </div>
+
+      <div class="lab card">
+        <span class="tag">實驗 ②</span>
+        <h3>食物風險判斷</h3>
+        <p class="hint">這個食物容易造成蛀牙嗎？連續判斷 16 樣。</p>
+        <div class="stage">
+          <div class="emoji" id="fEmoji">🍬</div>
+          <div class="name" id="fName">—</div>
+        </div>
+        <div class="opts">
+          <button id="fHigh">容易蛀牙</button>
+          <button id="fLow">不容易蛀牙</button>
+        </div>
+        <div class="fb" id="fFb"></div>
+        <div class="progress" id="fProg"></div>
+      </div>
+
+      <div class="lab card">
+        <span class="tag">實驗 ③</span>
+        <h3>刷牙死角地圖</h3>
+        <p class="hint">點一個區域，看看那裡要怎麼刷、最常被漏掉的原因。</p>
+        <div class="stage">
+          <div class="quad">
+            <button data-zone="上排外側">上排外側</button>
+            <button data-zone="上排內側">上排內側</button>
+            <button data-zone="下排外側">下排外側</button>
+            <button data-zone="下排內側">下排內側</button>
+            <button data-zone="咬合面">咬合面</button>
+            <button data-zone="牙縫">牙縫</button>
+          </div>
+        </div>
+        <div class="fb" id="zFb">點一個區域看看。</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="deck">
+  <div class="wrap">
+    <p class="eyebrow">教學簡報</p>
+    <h2>21 頁，一頁一個重點</h2>
+    <p class="lead">現場投影用簡報檔；這裡是同一份內容的網頁版，可用左右鍵翻頁。</p>
+    <div class="deck">
+      <div class="frame"><img id="slideImg" src="slides/slide01.jpg" alt="簡報第 1 頁"></div>
+      <div class="bar">
+        <button class="btn ghost" id="prevSlide">← 上一頁</button>
+        <span class="count" id="slideCount">1 / 21</span>
+        <button class="btn" id="nextSlide">下一頁 →</button>
+      </div>
+      <div class="thumbs" id="thumbs"></div>
+    </div>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="wrap">
+    <p class="eyebrow">課堂測驗</p>
+    <h2>10 題，檢查你懂了嗎</h2>
+    <p class="lead">每題選一個答案，選完會告訴你對錯和原因。看不懂題目時，按「🔊 念題目」就會念給你聽。</p>
+    <div class="quiz card qcard" id="quizBox"></div>
+  </div>
+</section>
+
+<section id="videos">
+  <div class="wrap">
+    <p class="eyebrow">參考影片</p>
+    <h2>老師講不清楚的，交給影片</h2>
+    <p class="lead">6 部衛教與教學影片，點縮圖到 YouTube 播放。上課前建議先自己看過一次。</p>
+    <div class="videos" id="videoList"></div>
+  </div>
+</section>
+
+<section id="tools">
+  <div class="wrap">
+    <p class="eyebrow">教學工具</p>
+    <h2>抽籤與計時器</h2>
+    <p class="lead">抽籤用座號 1～30，抽過不重複；計時器預設 2 分鐘（刷牙用）。</p>
+    <div class="tools">
+      <div class="tool card">
+        <h3>抽籤（座號 1–30）</h3>
+        <div class="draw-num idle" id="drawOut">按下面開始</div>
+        <div class="row">
+          <button class="btn accent" id="drawBtn">抽一個</button>
+          <button class="btn ghost" id="drawReset">重設</button>
+        </div>
+        <div class="pool" id="drawPool">剩下 30 個號碼</div>
+      </div>
+      <div class="tool card">
+        <h3>計時器</h3>
+        <div class="timer" id="timerOut">02:00</div>
+        <div class="presets">
+          <button data-sec="30">30 秒</button>
+          <button data-sec="120">2 分鐘</button>
+          <button data-sec="180">3 分鐘</button>
+          <button data-sec="300">5 分鐘</button>
+        </div>
+        <div class="row">
+          <button class="btn accent" id="tStart">開始</button>
+          <button class="btn ghost" id="tReset">歸零</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="battle">
+  <div class="wrap">
+    <p class="eyebrow">兩人對戰</p>
+    <h2>檢查站知識王：兩人搶答</h2>
+    <p class="lead">同一題目兩人同時看到，先答對得 1 分。10 題結束結算，可再戰。</p>
+    <div class="battle">
+      <iframe id="battleFrame" src="battle.html?embed=1" title="檢查站知識王對戰" loading="lazy"></iframe>
+    </div>
+    <p class="note" id="battleNote">載入中…若畫面一直空白，請確認網路連線，或改用教室區網版。</p>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <p class="eyebrow">教材圖卡</p>
+    <h2>24 張上課圖卡，自由取用</h2>
+    <p class="lead">依三個檢查站分成三組，簡報與學習單都用這批圖。點圖可放大。</p>
+    <div class="filters" id="filters">
+      <button class="on" data-g="all">全部 24</button>
+      <button data-g="視力站">視力站</button>
+      <button data-g="口腔站">口腔站</button>
+      <button data-g="行動站">行動站</button>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section id="downloads">
+  <div class="wrap">
+    <p class="eyebrow">下載</p>
+    <h2>教案、簡報、學習單、測驗卷</h2>
+    <p class="lead">要列印、要修改都可以直接用。</p>
+    <div class="dl" id="dlList">
+      <a class="card" href="downloads/教案_視力口腔檢查站.docx" download>
+        <em>DOCX</em><b>教案（3 節）</b><span>13 節結構，含教學流程、評量、板書與省思欄</span>
+      </a>
+      <a class="card" href="downloads/視力口腔檢查站_教學簡報.pptx" download>
+        <em>PPTX</em><b>教學簡報</b><span>21 頁，16:9，可直接投影</span>
+      </a>
+      <a class="card" href="downloads/學習單1_護眼行動檢核表.pdf" download>
+        <em>PDF</em><b>學習單①</b><span>護眼行動檢核、30 公分實測、3010 記錄</span>
+      </a>
+      <a class="card" href="downloads/學習單2_牙齒保衛戰.pdf" download>
+        <em>PDF</em><b>學習單②</b><span>牙齒構造、齲齒四要素、貝氏刷牙、食物分類</span>
+      </a>
+      <a class="card" href="downloads/測驗卷_視力口腔檢查站.pdf" download>
+        <em>PDF</em><b>測驗卷</b><span>10 題，附答案與解析（第 3 頁）</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>視力口腔檢查站｜康軒版五年級上學期 健康與體育 單元一 第 2 課｜教材圖卡 24 張｜115 學年度</p>
+    <p><a href="#map">回課程地圖</a>　｜　<a href="battle.html">對戰頁（單獨開）</a></p>
+  </div>
+</footer>
+
+<div class="lb" id="lightbox"><span class="close">&times;</span><img id="lbImg" alt=""><p id="lbCap"></p></div>
+<div class="toast" id="toast"></div>
+
+<script src="media/images.js"></script>
+<script src="battle-api.js"></script>
+<script>
+
+/* ═══════════ 資料 ═══════════ */
+const LESSONS = [
+  { n:1, sec:'視力站', title:'看不清楚，是誰的事？',
+    goal:'能說出定期視力檢查的目的、讀懂視力值代表的意義，並找出自己生活中最傷眼的用眼習慣。',
+    acts:['健康檢查紀錄卡','視力表體驗','0.8 複檢線','3010 護眼'],
+    imgs:['v01','v02','v03','v07'], slide:5 },
+  { n:2, sec:'口腔站', title:'牙齒的秘密任務',
+    goal:'能說明齲齒形成的四個條件，正確操作貝氏刷牙法與牙線，並知道含氟與定期檢查的作用。',
+    acts:['牙菌斑檢測','貝氏刷牙實作','牙線練習','含糖飲料實驗'],
+    imgs:['d01','d02','d03','d06'], slide:12 },
+  { n:3, sec:'行動站', title:'檢查站開張：我的保健行動方案',
+    goal:'統整視力與口腔保健知識，訂出可執行的兩週行動方案，完成 10 題測驗與兩人對戰。',
+    acts:['自我檢核表','行動方案','10 題測驗','兩人對戰'],
+    imgs:['a01','a02','v09','d09'], slide:19 }
+];
+
+const SLIDES = /* SLIDES-START */
+[
+  {"img": "slides/slide01.jpg"},
+  {"img": "slides/slide02.jpg"},
+  {"img": "slides/slide03.jpg"},
+  {"img": "slides/slide04.jpg"},
+  {"img": "slides/slide05.jpg"},
+  {"img": "slides/slide06.jpg"},
+  {"img": "slides/slide07.jpg"},
+  {"img": "slides/slide08.jpg"},
+  {"img": "slides/slide09.jpg"},
+  {"img": "slides/slide10.jpg"},
+  {"img": "slides/slide11.jpg"},
+  {"img": "slides/slide12.jpg"},
+  {"img": "slides/slide13.jpg"},
+  {"img": "slides/slide14.jpg"},
+  {"img": "slides/slide15.jpg"},
+  {"img": "slides/slide16.jpg"},
+  {"img": "slides/slide17.jpg"},
+  {"img": "slides/slide18.jpg"},
+  {"img": "slides/slide19.jpg"},
+  {"img": "slides/slide20.jpg"},
+  {"img": "slides/slide21.jpg"}
+]
+/* SLIDES-END */;
+
+const QUIZ = /* QUIZ-START */
+[
+  {"q": "學校每學期為什麼要幫我們做視力檢查？", "o": ["因為檢查很好玩", "為了早點發現視力問題，及早處理", "為了比較誰的視力最好", "為了讓學生可以請假"], "a": 1, "lv": "記憶", "e": "定期檢查是一種「篩檢」，目的在問題還不嚴重時就發現。視力掉下來的時候，自己通常沒有感覺。"},
+  {"q": "視力檢查結果如果是 0.8 以下，通常應該怎麼做？", "o": ["不用管，長大就會好", "自己去眼鏡行配一副眼鏡", "多吃紅蘿蔔就好", "到眼科診所做進一步檢查"], "a": 3, "lv": "記憶", "e": "0.8 是學校視力篩檢的複檢標準。低於 0.8 要盡快到眼科檢查，確認是近視、遠視、散光還是其他原因。"},
+  {"q": "貝氏刷牙法的刷毛要與牙齒表面呈幾度？", "o": ["45 度，並涵蓋一點牙齦", "90 度（垂直）", "0 度（平行）", "隨便刷都可以"], "a": 0, "lv": "記憶", "e": "刷毛與牙面成 45–60 度、微微壓進牙齦溝，兩顆兩顆小幅度震動，才刷得到牙菌斑最多的地方。"},
+  {"q": "為什麼「看得到黑板」不代表視力一定正常？", "o": ["因為黑板上的字很大", "看得到就代表正常", "眼睛會用力調節，一時看不清楚也會被撐過去", "因為黑板是綠色的"], "a": 2, "lv": "理解", "e": "睫狀肌會努力對焦，讓你在短時間內「撐」出清楚影像。長期硬撐會讓眼睛疲勞，度數反而加深。"},
+  {"q": "下列哪一項「不是」造成近視的主要原因？", "o": ["長時間近距離用眼", "每天到戶外活動", "光線不足的地方看書", "休息時間太少"], "a": 1, "lv": "理解", "e": "戶外活動是保護因子，不是兇手。每天戶外 120 分鐘能降低近視發生的風險。"},
+  {"q": "為什麼「吃糖」會造成齲齒？", "o": ["糖本身會腐蝕牙齒", "糖只會讓牙齒變色", "吃糖會讓牙齒變軟", "牙菌斑的細菌把糖分解成酸，酸腐蝕牙齒"], "a": 3, "lv": "理解", "e": "關鍵是牙菌斑裡的細菌。細菌分解糖產生酸，酸讓琺瑯質脫鈣。所以「吃的次數」比「吃多少」更關鍵。"},
+  {"q": "小安放學後連續看線上課程 90 分鐘，依 3010 原則應該怎麼安排？", "o": ["一次看完比較專心，不用休息", "只要點散瞳劑就不用休息", "每 30 分鐘休息 10 分鐘，共休息 2 次", "看 10 分鐘休息 30 分鐘"], "a": 2, "lv": "應用", "e": "3010＝用眼 30 分鐘、休息 10 分鐘。90 分鐘切成 3 段，中間休息 2 次，讓睫狀肌放鬆。"},
+  {"q": "早上拿到一杯含糖飲料，下列哪個喝法對牙齒最不好？", "o": ["喝完馬上用清水漱口", "慢慢喝，一整個上午分次喝完", "用吸管喝，喝完刷牙", "喝完嚼無糖口香糖"], "a": 1, "lv": "應用", "e": "分次慢慢喝＝牙齒長時間泡在糖水裡，細菌會不斷產酸。一次喝完比慢慢喝好，喝完漱口更好。"},
+  {"q": "刷牙時「牙縫」刷不到，最適合用什麼工具？", "o": ["用力多刷幾次牙齒表面", "用牙籤戳一戳", "漱口水就夠了", "牙線（或牙間刷）"], "a": 3, "lv": "應用", "e": "牙刷刷毛進不了牙縫，牙縫的牙菌斑要用牙線清。漱口水只能輔助，不能取代刷牙和牙線。"},
+  {"q": "阿明說：「我牙齒都不痛，所以不用去檢查。」這個想法最大的問題是什麼？", "o": ["沒有問題，不痛就不用去", "檢查要花錢", "牙齒不痛也可能已經有齲齒，等痛了通常已經很深", "牙醫很難預約"], "a": 2, "lv": "分析", "e": "齲齒初期沒有感覺，等到痛通常是已經蛀到象牙質或牙髓。每半年檢查，才能在小洞的時候就補起來。"}
+]
+/* QUIZ-END */;
+
+const VIDEOS = /* VIDEOS-START */
+[
+  {"t": "3010120　EYE 護好眼睛", "id": "iMGAynCpEVo", "u": "https://www.youtube.com/watch?v=iMGAynCpEVo", "s": "童綜合醫院"},
+  {"t": "「視」當休息 3010 要注意", "id": "2yyvF1D4gsQ", "u": "https://www.youtube.com/watch?v=2yyvF1D4gsQ", "s": "健康九九"},
+  {"t": "兒童及青少年視力保健動畫宣導影片", "id": "Et0dBIDZ5cg", "u": "https://www.youtube.com/watch?v=Et0dBIDZ5cg", "s": "健康九九"},
+  {"t": "EYE 的保衛戰｜視力保健衛教影片", "id": "ilTqX3SV7mk", "u": "https://www.youtube.com/watch?v=ilTqX3SV7mk", "s": "健康九九"},
+  {"t": "【健康盟】貝氏刷牙法－口訣 321 快速學習", "id": "x2W2YAEVtiM", "u": "https://www.youtube.com/watch?v=x2W2YAEVtiM", "s": "健康盟"},
+  {"t": "8020 口腔保健宣導動畫 3 分鐘", "id": "t66IqD0M_-U", "u": "https://www.youtube.com/watch?v=t66IqD0M_-U", "s": "新北市政府衛生局"}
+]
+/* VIDEOS-END */;
+
+/* ═══════════ 小工具 ═══════════ */
+const $ = (s) => document.querySelector(s);
+const shuffle = (a) => a.map(v => [Math.random(), v]).sort((x, y) => x[0] - y[0]).map(v => v[1]);
+let toastTimer;
+function toast(msg){ const t = $('#toast'); t.textContent = msg; t.classList.add('on');
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('on'), 1800); }
+const imgByCode = (code) => (typeof IMAGES !== 'undefined' ? IMAGES.find(x => x.code === code) : null);
+
+/* ═══════════ 課程地圖 ═══════════ */
+(function renderLessons(){
+  const box = $('#lessonList');
+  box.innerHTML = LESSONS.map(L => `
+    <article class="lesson card">
+      <div class="no">${L.n}<small>第 ${L.n} 節</small></div>
+      <div>
+        <h3>${L.title}<span style="font-size:13px;color:var(--ink3);font-weight:400;margin-left:10px">${L.sec}</span></h3>
+        <p class="goal">${L.goal}</p>
+        <ul class="acts">${L.acts.map(a => `<li>${a}</li>`).join('')}</ul>
+        <div class="imgs">${L.imgs.map(c => { const im = imgByCode(c); return im ? `<img src="${im.h}" alt="${im.name}" title="${im.name}">` : ''; }).join('')}</div>
+        <p style="margin:12px 0 0"><a href="#deck" data-slide="${L.slide}" class="jump">看這節的簡報 →</a></p>
+      </div>
+    </article>`).join('');
+  box.querySelectorAll('.jump').forEach(a => a.addEventListener('click', () => {
+    goSlide(parseInt(a.dataset.slide, 10) - 1);
+  }));
+})();
+
+/* ═══════════ 實驗①：護眼時鐘 ═══════════ */
+(function eyeClock(){
+  const r = $('#eyeRange'), out = $('#eyeOut'), brk = $('#eyeBreak'),
+        bar = $('#eyeBar'), fb = $('#eyeFb');
+  const update = () => {
+    const m = parseInt(r.value, 10);
+    out.textContent = m + ' 分鐘';
+    const breaks = m <= 30 ? 0 : Math.ceil(m / 30) - 1;
+    brk.textContent = `依 3010，中間要休息 ${breaks} 次`;
+    const pct = Math.min(100, Math.round(m / 120 * 100));
+    bar.style.width = Math.max(6, pct) + '%';
+    bar.style.background = m <= 30 ? '#3F7D5A' : (m <= 60 ? '#C06A2B' : '#B4483C');
+    fb.className = 'fb';
+    fb.textContent = m === 0 ? '沒有用眼，眼睛很輕鬆。'
+      : m <= 30 ? '✓ 在 30 分鐘內，休息一次就好。'
+      : m <= 60 ? '要注意：已經超過一段，中間要插一次 10 分鐘休息。'
+      : '⚠ 連續用眼太久了，睫狀肌一直收縮會疲勞，度數容易加深。';
+  };
+  r.addEventListener('input', update); update();
+})();
+
+/* ═══════════ 實驗②：食物風險判斷 ═══════════ */
+const FOODS = [
+  { e:'🍬', n:'軟糖',      high:true,  why:'又甜又黏，附著在牙面上，細菌有很長時間產酸。' },
+  { e:'🥤', n:'含糖飲料',  high:true,  why:'糖水直接泡著牙齒，分次喝更傷。' },
+  { e:'🧋', n:'奶茶',      high:true,  why:'糖分高又常慢慢喝，是蛀牙的高風險飲料。' },
+  { e:'🍪', n:'餅乾',      high:true,  why:'澱粉加糖，容易卡在牙縫裡。' },
+  { e:'🍰', n:'蛋糕',      high:true,  why:'糖多、口感黏，停留在牙面上時間長。' },
+  { e:'🍫', n:'巧克力',    high:true,  why:'甜又黏牙，吃完要馬上漱口。' },
+  { e:'🍟', n:'洋芋片',    high:true,  why:'澱粉碎片容易卡牙縫，細菌一樣會分解成酸。' },
+  { e:'🧃', n:'運動飲料',  high:true,  why:'含糖又偏酸，對琺瑯質是雙重負擔。' },
+  { e:'💧', n:'白開水',    high:false, why:'最好的飲料，還能沖掉口中的食物殘渣。' },
+  { e:'🥬', n:'燙青菜',    high:false, why:'纖維多、不黏牙，咀嚼時還能幫助清潔。' },
+  { e:'🥛', n:'無糖豆漿',  high:false, why:'沒有加糖，不會讓細菌大量產酸。' },
+  { e:'🍐', n:'芭樂',      high:false, why:'纖維多、要咀嚼，是很好的點心選擇。' },
+  { e:'🥚', n:'水煮蛋',    high:false, why:'蛋白質為主，不甜也不黏牙。' },
+  { e:'🧀', n:'起司',      high:false, why:'不甜，還能幫助中和口中的酸。' },
+  { e:'🥜', n:'原味堅果',  high:false, why:'不黏牙、無添加糖，適量當點心可以。' },
+  { e:'🥕', n:'胡蘿蔔',    high:false, why:'要咀嚼、纖維多，不會長時間附著在牙面。' }
+];
+
+(function foodGame(){
+  let deck = shuffle(FOODS), i = 0, score = 0, locked = false;
+  const em = $('#fEmoji'), nm = $('#fName'), fb = $('#fFb'), pg = $('#fProg');
+  const hi = $('#fHigh'), lo = $('#fLow');
+
+  function show(){
+    if (i >= deck.length){ finish(); return; }
+    const it = deck[i];
+    em.textContent = it.e; nm.textContent = it.n;
+    fb.textContent = ''; fb.className = 'fb';
+    pg.textContent = `第 ${i + 1} / ${deck.length} 題　已答對 ${score} 題`;
+    hi.disabled = lo.disabled = false; locked = false;
+  }
+  function answer(choice){
+    if (locked) return; locked = true;
+    const it = deck[i];
+    const right = choice === it.high;
+    if (right) score++;
+    fb.textContent = (right ? '✓ 答對了！' : '✗ 再想想。') + it.why;
+    fb.className = 'fb ' + (right ? 'ok' : 'bad');
+    pg.textContent = `第 ${i + 1} / ${deck.length} 題　已答對 ${score} 題`;
+    hi.disabled = lo.disabled = true;
+    setTimeout(() => { i++; show(); }, 1600);
+  }
+  function finish(){
+    em.textContent = '🦷';
+    nm.textContent = `全部完成！答對 ${score} / ${deck.length}`;
+    fb.textContent = score >= deck.length * 0.8
+      ? '很準！你已經抓到「甜＋黏＋時間長」的規律。'
+      : '再看一次：不甜的澱粉（餅乾、洋芋片）一樣會蛀牙，關鍵是黏不黏、停多久。';
+    fb.className = 'fb ' + (score >= deck.length * 0.8 ? 'ok' : 'bad');
+    pg.innerHTML = '<a href="#" id="againBtn">再玩一次 →</a>';
+    document.getElementById('againBtn').addEventListener('click', (e) => {
+      e.preventDefault(); deck = shuffle(FOODS); i = 0; score = 0; show();
+    });
+  }
+  hi.addEventListener('click', () => answer(true));
+  lo.addEventListener('click', () => answer(false));
+  show();
+})();
+
+/* ═══════════ 實驗③：刷牙死角地圖 ═══════════ */
+const ZONES = {
+  '上排外側': '刷毛 45 度朝牙齦，從最後一顆開始，兩顆兩顆往前刷。這是最容易刷到、也最常被草草帶過的地方。',
+  '上排內側': '牙刷轉成直向，用刷毛前端小幅度震動。上排內側常被忽略，因為看不到。',
+  '下排外側': '同樣 45 度朝向牙齦，下排牙齦較薄，力道要更輕。',
+  '下排內側': '最容易漏的一區。舌頭擋著不好刷，要放慢、一顆一顆來。',
+  '咬合面': '刷毛垂直壓在咬合面，前後來回刷，把溝槽裡的殘渣刷出來。',
+  '牙縫': '牙刷進不去，只能用牙線：貼著牙面呈 C 字形上下刮，兩邊都要刮。'
+};
+(function zones(){
+  const fb = $('#zFb');
+  document.querySelectorAll('.quad button').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('.quad button').forEach(x => x.classList.remove('on'));
+      b.classList.add('on');
+      fb.textContent = '✓ ' + b.dataset.zone + '：' + ZONES[b.dataset.zone];
+      fb.className = 'fb ok';
+    });
+  });
+})();
+
+/* ═══════════ 簡報播放器 ═══════════ */
+let slideIdx = 0;
+function goSlide(n){
+  slideIdx = Math.max(0, Math.min(SLIDES.length - 1, n));
+  $('#slideImg').src = SLIDES[slideIdx].img;
+  $('#slideImg').alt = '簡報第 ' + (slideIdx + 1) + ' 頁';
+  $('#slideCount').textContent = (slideIdx + 1) + ' / ' + SLIDES.length;
+  document.querySelectorAll('#thumbs img').forEach((im, i) => im.classList.toggle('on', i === slideIdx));
+}
+(function deck(){
+  $('#thumbs').innerHTML = SLIDES.map((s, i) => `<img src="${s.img}" data-i="${i}" alt="第 ${i + 1} 頁" loading="lazy">`).join('');
+  $('#thumbs').addEventListener('click', (e) => {
+    const t = e.target.closest('img'); if (t) goSlide(parseInt(t.dataset.i, 10));
+  });
+  $('#prevSlide').addEventListener('click', () => goSlide(slideIdx - 1));
+  $('#nextSlide').addEventListener('click', () => goSlide(slideIdx + 1));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') goSlide(slideIdx + 1);
+    if (e.key === 'ArrowLeft') goSlide(slideIdx - 1);
+  });
+  goSlide(0);
+})();
+
+/* ═══════════ 語音朗讀（Web Speech API） ═══════════ */
+const SPEECH_OK = ('speechSynthesis' in window) && (typeof SpeechSynthesisUtterance !== 'undefined');
+let speakBtnOn = null, zhVoice = null;
+
+function pickZhVoice(){
+  if (!SPEECH_OK) return null;
+  const vs = window.speechSynthesis.getVoices() || [];
+  if (!vs.length) return null;
+  const res = [/zh[-_]TW/i, /Chinese.*(Taiwan|Traditional)/i, /Hanhan|Yating|HsiaoChen|Zhiwei|Tingting/i, /^zh/i];
+  for (const re of res){
+    const v = vs.find(x => re.test((x.lang || '') + ' ' + (x.name || '')));
+    if (v) return v;
+  }
+  return null;
+}
+if (SPEECH_OK){
+  zhVoice = pickZhVoice();
+  if (typeof window.speechSynthesis.addEventListener === 'function'){
+    window.speechSynthesis.addEventListener('voiceschanged', () => { zhVoice = pickZhVoice(); });
+  }
+}
+function stopSpeak(){
+  if (!SPEECH_OK) return;
+  try { window.speechSynthesis.cancel(); } catch (e) {}
+  if (speakBtnOn){
+    speakBtnOn.classList.remove('on');
+    speakBtnOn.textContent = '🔊 念題目';
+    speakBtnOn = null;
+  }
+}
+function speakText(text, btn){
+  if (!SPEECH_OK){ toast('這個瀏覽器不支援語音朗讀，請改用 Chrome、Edge 或 Safari'); return; }
+  if (btn.classList.contains('on')){ stopSpeak(); return; }
+  stopSpeak();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'zh-TW'; u.rate = 0.9; u.pitch = 1; u.volume = 1;
+  const v = zhVoice || pickZhVoice(); if (v) u.voice = v;
+  const done = () => {
+    if (speakBtnOn === btn){ btn.classList.remove('on'); btn.textContent = '🔊 念題目'; speakBtnOn = null; }
+  };
+  u.onend = done; u.onerror = done;
+  speakBtnOn = btn; btn.classList.add('on'); btn.textContent = '⏹ 停止';
+  window.speechSynthesis.speak(u);
+}
+function quizSpeech(q, idx){
+  return `第 ${idx + 1} 題。${q.q}。選項：` + q.o.map((o, k) => `${'ABCD'[k]}，${o}`).join('。') + '。';
+}
+
+/* ═══════════ 測驗 ═══════════ */
+(function quiz(){
+  const box = $('#quizBox');
+  let i = 0, score = 0;
+
+  function start(){ stopSpeak(); i = 0; score = 0; render(); }
+  function render(){
+    stopSpeak();
+    if (i >= QUIZ.length) return result();
+    const q = QUIZ[i];
+    const speakBtn = SPEECH_OK
+      ? `<button class="speak" id="qSpeak" type="button" title="朗讀題目與選項">🔊 念題目</button>` : '';
+    box.innerHTML = `
+      <div class="qhead">
+        <p class="qtext">${i + 1}. ${q.q}</p>
+        ${speakBtn}
+      </div>
+      <div class="qopts">${q.o.map((o, k) =>
+        `<button class="qopt" data-k="${k}"><span class="k">${'ABCD'[k]}</span><span>${o}</span></button>`).join('')}</div>
+      <div class="qfb" id="qfb"></div>
+      <div class="qbar"><span>第 ${i + 1} / ${QUIZ.length} 題</span><span>答對 ${score} 題</span></div>`;
+    box.querySelectorAll('.qopt').forEach(b => b.addEventListener('click', () => pick(parseInt(b.dataset.k, 10))));
+    if (SPEECH_OK){
+      const sb = box.querySelector('#qSpeak');
+      sb.addEventListener('click', () => speakText(quizSpeech(q, i), sb));
+    }
+  }
+  function pick(k){
+    stopSpeak();
+    const q = QUIZ[i];
+    box.querySelectorAll('.qopt').forEach((b, idx) => {
+      b.disabled = true;
+      if (idx === q.a) b.classList.add('ok');
+      if (idx === k && k !== q.a) b.classList.add('bad');
+    });
+    const right = k === q.a;
+    if (right) score++;
+    const fb = $('#qfb');
+    fb.className = 'qfb show';
+    fb.innerHTML = (right ? '<b>✓ 答對了</b>' : `<b>✗ 答案是 ${'ABCD'[q.a]}</b>`) + '<br>' + q.e +
+      `<div style="margin-top:12px"><button class="btn" id="qnext">${i + 1 === QUIZ.length ? '看結果' : '下一題 →'}</button></div>`;
+    $('#qnext').addEventListener('click', () => { i++; render(); });
+  }
+  function result(){
+    const pct = Math.round(score / QUIZ.length * 100);
+    const msg = pct === 100 ? '滿分！你已經是檢查站小達人。'
+      : pct >= 80 ? '很厲害，再複習錯的那一題就好。'
+      : pct >= 60 ? '不錯，把「0.8 複檢線」和「貝氏刷牙 45 度」再看一次。'
+      : '別急，回到互動實驗室再玩一輪。';
+    box.innerHTML = `<div class="result">
+      <div class="score">${score}<small> / ${QUIZ.length}</small></div>
+      <p style="font-size:19px;margin:18px 0 6px">${msg}</p>
+      <p style="color:var(--ink2)">答對率 ${pct}%</p>
+      <div style="margin-top:20px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <button class="btn accent" id="qagain">再測一次</button>
+        <a class="btn ghost" href="#battle">去兩人對戰</a>
+      </div></div>`;
+    $('#qagain').addEventListener('click', start);
+  }
+  start();
+})();
+
+/* ═══════════ 影片 ═══════════ */
+(function videos(){
+  $('#videoList').innerHTML = VIDEOS.map(v => `
+    <a class="video card" href="${v.u}" target="_blank" rel="noopener">
+      <div class="thumb">
+        <img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt="${v.t}" loading="lazy">
+        <div class="play"><span>▶</span></div>
+      </div>
+      <div class="meta"><b>${v.t}</b><span>${v.s} ・ YouTube</span></div>
+    </a>`).join('');
+})();
+
+/* ═══════════ 抽籤 ═══════════ */
+(function draw(){
+  const TOTAL = 30;
+  let pool = [];
+  const out = $('#drawOut'), poolTxt = $('#drawPool');
+  const reset = () => { pool = Array.from({ length: TOTAL }, (_, i) => i + 1); poolTxt.textContent = `剩下 ${pool.length} 個號碼`; };
+  reset();
+  $('#drawBtn').addEventListener('click', () => {
+    if (!pool.length){ toast('30 個號碼都抽完了，按「重設」再來'); return; }
+    const k = Math.floor(Math.random() * pool.length);
+    const n = pool.splice(k, 1)[0];
+    out.textContent = n;
+    out.classList.remove('idle');
+    poolTxt.textContent = `剩下 ${pool.length} 個號碼：` + (pool.length ? pool.join('、') : '（已抽完）');
+  });
+  $('#drawReset').addEventListener('click', () => { reset(); out.textContent = '按下面開始'; out.classList.add('idle'); });
+})();
+
+/* ═══════════ 計時器 ═══════════ */
+(function timer(){
+  let total = 120, left = 120, tick = null;
+  const out = $('#timerOut'), startBtn = $('#tStart');
+  const fmt = (s) => String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0');
+  const paint = () => { out.textContent = fmt(left); out.classList.toggle('warn', left <= 10); };
+  function stop(){ clearInterval(tick); tick = null; startBtn.textContent = '開始'; }
+  startBtn.addEventListener('click', () => {
+    if (tick){ stop(); return; }
+    if (left === 0) left = total;
+    startBtn.textContent = '暫停';
+    tick = setInterval(() => {
+      left--; paint();
+      if (left <= 0){ stop(); toast('時間到！'); }
+    }, 1000);
+  });
+  $('#tReset').addEventListener('click', () => { stop(); left = total; paint(); });
+  document.querySelectorAll('.presets button').forEach(b => b.addEventListener('click', () => {
+    stop(); total = parseInt(b.dataset.sec, 10); left = total; paint();
+  }));
+  paint();
+})();
+
+/* ═══════════ 圖庫 ═══════════ */
+(function gallery(){
+  const grid = $('#grid');
+  const render = (g) => {
+    const list = (typeof IMAGES === 'undefined' ? [] : IMAGES).filter(im => g === 'all' || im.g === g);
+    grid.innerHTML = list.map(im => `
+      <figure data-full="${im.f}" data-name="${im.name}">
+        <img src="${im.h}" alt="${im.name}" loading="lazy">
+        <figcaption>${im.name}</figcaption>
+      </figure>`).join('');
+    $('#filters').querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.g === g));
+  };
+  $('#filters').addEventListener('click', (e) => {
+    const b = e.target.closest('button'); if (b) render(b.dataset.g);
+  });
+  grid.addEventListener('click', (e) => {
+    const f = e.target.closest('figure'); if (!f) return;
+    $('#lbImg').src = f.dataset.full;
+    $('#lbCap').textContent = f.dataset.name;
+    $('#lightbox').classList.add('on');
+  });
+  $('#lightbox').addEventListener('click', () => $('#lightbox').classList.remove('on'));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') $('#lightbox').classList.remove('on'); });
+  render('all');
+})();
+
+/* ═══════════ 對戰說明 ═══════════ */
+(function battleNote(){
+  const api = (window.BATTLE_API || '').trim();
+  const note = $('#battleNote');
+  if (api){
+    note.innerHTML = `線上版：兩個學生各自開這個網頁，捲到這一區，輸入名字就會自動配對。<br>
+      老師也可以直接開 <a href="battle.html">對戰頁</a>。第一次連線若停在「正在連線」，是後端剛睡醒，等 30～60 秒。`;
+  } else {
+    note.innerHTML = `目前是「教室區網」模式：請老師先雙擊 <code>start-battle.bat</code>，
+      黑色視窗會顯示學生入口網址（含實際埠號，例如 <code>http://192.168.1.10:8765/battle.html</code>），
+      照那個網址給學生開即可。`;
+  }
+})();
+</script>
+</body>
+</html>
